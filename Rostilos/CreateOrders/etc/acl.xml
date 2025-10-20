@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Rostilos_CreateOrders::main" title="CreateOrders" sortOrder="1000">
+                    <resource id="Rostilos_CreateOrders::view" title="View Created Orders" sortOrder="10"/>
+                    <resource id="Rostilos_CreateOrders::retry" title="Retry Created Orders" sortOrder="20"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

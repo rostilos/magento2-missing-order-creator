@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework/Event/etc/events.xsd">
+    <!-- Wire Stripe example events to the generic provider observer.
+         Add other provider events here or have the provider call the Creator service directly. -->
+    <event name="stripe_payments_webhook_charge_succeeded">
+        <observer name="createorders_provider_charge_succeeded" instance="Rostilos\CreateOrders\Observer\StripeWebhookObserver" />
+    </event>
+    <event name="stripe_payments_webhook_payment_intent_succeeded">
+        <observer name="createorders_provider_payment_intent_succeeded" instance="Rostilos\CreateOrders\Observer\StripeWebhookObserver" />
+    </event>
+</config>

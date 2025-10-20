@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+<menu>
+    <add id="Rostilos_CreateOrders::main"
+         title="CreateOrders"
+         module="Rostilos_CreateOrders"
+         sortOrder="900"
+         resource="Rostilos_CreateOrders::main"/>
+    <add id="Rostilos_CreateOrders::records"
+         title="Created Orders"
+         module="Rostilos_CreateOrders"
+         sortOrder="10"
+         parent="Rostilos_CreateOrders::main"
+         action="createorders/index/index"
+         resource="Rostilos_CreateOrders::view"/>
+</menu>
+</config>

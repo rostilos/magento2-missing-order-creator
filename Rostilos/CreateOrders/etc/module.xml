@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Rostilos_CreateOrders" setup_version="1.0.0">
+        <sequence>
+            <!-- Optional: ensure StripeIntegration_Payments is available but not required -->
+            <module name="StripeIntegration_Payments" />
+        </sequence>
+    </module>
+</config>

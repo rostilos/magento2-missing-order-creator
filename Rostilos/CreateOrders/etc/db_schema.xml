@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="createorders_records" resource="default" engine="innodb" comment="CreateOrders - created orders tracking">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="provider" nullable="true" length="64" comment="Payment provider (stripe, paypal, etc)"/>
+        <column xsi:type="varchar" name="event_id" nullable="true" length="255" comment="Provider event id"/>
+        <column xsi:type="varchar" name="payment_intent_id" nullable="true" length="255" comment="Payment intent id (or equivalent)"/>
+        <column xsi:type="varchar" name="charge_id" nullable="true" length="255" comment="Charge id"/>
+        <column xsi:type="varchar" name="order_increment_id" nullable="true" length="50" comment="Order increment id created"/>
+        <column xsi:type="int" name="quote_id" nullable="true" unsigned="true" comment="Quote id used to build the order"/>
+        <column xsi:type="varchar" name="status" nullable="false" length="32" default="pending" comment="Creation status (pending, created, failed)"/>
+        <column xsi:type="text" name="meta" nullable="true" comment="Raw metadata / diagnostic info (json)"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP" comment="Created at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="IDX_CREATEORDERS_PI">
+            <column name="payment_intent_id"/>
+        </index>
+        <index referenceId="IDX_CREATEORDERS_EVENT">
+            <column name="event_id"/>
+        </index>
+        <index referenceId="IDX_CREATEORDERS_QUOTE">
+            <column name="quote_id"/>
+        </index>
+        <index referenceId="IDX_CREATEORDERS_PROVIDER">
+            <column name="provider"/>
+        </index>
+    </table>
+</schema>
